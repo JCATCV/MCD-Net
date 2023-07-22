@@ -12,6 +12,8 @@ We integrate our proposed Depth Completion Network (*i.e.*, the JSCA and SRTA), 
 **2. VID Dataset: real RGB-D videos with dense annotated masks**
 ![dataset](./figs/dataset.png)<br>
 We propose the first RGB-D video inpainting dataset (VID) with *authentic* RGB-D data and *elaborately-made masks* to support RGB-D video inpainting. We upload a part of videos and masks in our VID dataset at <a href="https://baidu.com" title="baidu" target="_blank">Baidu</a>.
+![masks](./figs/concat-masks.jpg)<br>
+We manually corrected the masks of VID Dataset. The figures in the previous line show the original masks, and the figures in the next line show the mask manually corrected by us.
 
 # Abstract
 
