@@ -7,7 +7,7 @@ Our contribution can be summarized as a *new* model and a *new* dataset.
 
 **1. MCD-Net: using color and depth to mutually inpaint each other**
 ![model](./figs/model.png)<br>
-We integrate our proposed Depth Completion Network (*i.e.*, the JSCA and SRTA), Depth-Activated Transformer and Fusion Network into one framework for joint color and depth inpainting in RGB-D videos to achieve *SOTA accuracy andruntime*.
+We integrate our proposed Depth Completion Network (*i.e.*, the JSCA and SRTA), Depth-Activated Transformer and Fusion Network into one framework for joint color and depth inpainting in RGB-D videos to achieve *SOTA accuracy and runtime*.
 
 **2. VID Dataset: real RGB-D videos with dense annotated masks**
 ![dataset](./figs/dataset.png)<br>
