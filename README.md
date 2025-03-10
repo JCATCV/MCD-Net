@@ -1,9 +1,9 @@
 
-# MCD-Net: Towards RGB-D Video Inpainting in Real-World Scenes
+# [TIP-2024] MCD-Net: Towards RGB-D Video Inpainting in Real-World Scenes
 
+**[Update]: We uploaded the code of our model. The training framework is the same as E2FGVI, ProPainter, Fuseformer.**
 
 Towards the goal of RGB-D video inpainting in real-world scenes, we make two major contributions including a *new* model and a *new* dataset.
-
 
 **1. MCD-Net: using color and depth to mutually and implicitly inpaint each other**
 ![model](./figs/model.png)<br>
@@ -39,3 +39,17 @@ We deliver several real-world video examples inpainted by our MCD-Net <a href="h
 
 ## :clap: Acknowledgement
 We acknowledge <a href="https://github.com/gaomingqi/Track-Anything" title="track" target="_blank">Track-Anything</a>, <a href="https://github.com/robot-learning-freiburg/DynaFill/tree/master" title="dynafill" target="_blank">DynaFill</a>, <a href="https://github.com/MCG-NKU/E2FGVI" title="e2fgvi" target="_blank">E2FGVI</a>, <a href="https://github.com/ruiliu-ai/FuseFormer" title="fuseformer" target="_blank">Fuseformer</a>, <a href="https://github.com/researchmm/STTN" title="sttn" target="_blank">STTN</a>, <a href="https://github.com/seoungwugoh/opn-demo" title="opn" target="_blank">OPN</a>, <a href="https://github.com/vt-vl-lab/FGVC" title="fgvc" target="_blank">FGVC</a>, <a href="https://github.com/shleecs/Copy-and-Paste-Networks-for-Deep-Video-Inpainting" title="cpn" target="_blank">CAP</a>, <a href="https://github.com/ruiliu-ai/DSTT" title="dstt" target="_blank">DSTT</a>, <a href="https://github.com/kocchop/depth-completion-gan" title="dstt" target="_blank">SPGAN</a> and <a href="https://github.com/youmi-zym/CompletionFormer" title="cf" target="_blank">CompletionFormer</a> for their awesome works and the spirit of open source !
+
+## Citation
+If you find this work is helpful, please cite our paper:
+```bibtex
+@article{hou2024mcd,
+  title={MCD-Net: toward RGB-D video inpainting in real-world scenes},
+  author={Hou, Jiacheng and Ji, Zhong and Yang, Jinyu and Wang, Chengjie and Zheng, Feng},
+  journal={IEEE Transactions on Image Processing},
+  volume={33},
+  pages={1095--1108},
+  year={2024},
+  publisher={IEEE}
+}
+```
