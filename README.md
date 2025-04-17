@@ -1,7 +1,7 @@
 
 # [TIP-2024] MCD-Net: Towards RGB-D Video Inpainting in Real-World Scenes
 
-**[Update]: We uploaded the code of our model and the *full* dataset. The training framework is the same as E2FGVI, ProPainter, Fuseformer.**
+**[Update]: We uploaded the code of our model and the *full* dataset (<a href="https://pan.baidu.com/s/1jQ64C0jnn-dowX2phwKmQg?pwd=cang" title="baidu" target="_blank">BaiduNetDisk</a>). The training framework is the same as E2FGVI, ProPainter, Fuseformer.**
 
 Towards the goal of RGB-D video inpainting in real-world scenes, we make two major contributions including a *new* model and a *new* dataset.
 
