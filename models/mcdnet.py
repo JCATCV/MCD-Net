@@ -2,8 +2,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from core.spectral_norm import spectral_norm as _spectral_norm
-from models.modules.tfocal_transformer import TemporalFocalTransformerBlock, SoftSplit, SoftComp
+from models.spectral_norm import spectral_norm as _spectral_norm
+from models.modules.tfocal_transformer import SoftSplit, SoftComp
 from models.modules.depth_aware_transformer import DepthAwareTransformerBlock
 from models.modules.spectral_norm import spectral_norm as _spectral_norm
 
@@ -232,9 +232,6 @@ class InpaintGenerator(BaseNetwork):
                 n_vecs=n_vecs, t2t_params=t2t_params, pool_method=pool_method
             ))
         self.transformer = nn.Sequential(*blocks)
-        self.add_pos_emb = AddPosEmb(n_vecs, hidden)
-        
-
         self.encoder = Encoder()
 
         # decoder: decode frames from features
@@ -406,29 +403,6 @@ class ChannelAttention(nn.Module):
         avgout = self.sharedMLP(self.avg_pool(x))
         maxout = self.sharedMLP(self.max_pool(x))
         return self.sigmoid(avgout + maxout) 
-
-# #############################################################################
-# ############################# Transformer  ##################################
-# #############################################################################
-
-class AddPosEmb(nn.Module):
-    def __init__(self, n, c):
-        super(AddPosEmb, self).__init__()
-        self.pos_emb = nn.Parameter(torch.zeros(1, 1, n, c).float().normal_(mean=0, std=0.02), requires_grad=True)
-        self.num_vecs = n
-
-    def forward(self, x):
-        b, n, c = x.size()
-        x = x.view(b, -1, self.num_vecs, c)
-        x = x + self.pos_emb
-        x = x.view(b, n, c)
-        return x
-
-
-
-# ######################################################################
-# ######################################################################
-
 
 class Discriminator(BaseNetwork):
     def __init__(self, in_channels=3, use_sigmoid=False, use_spectral_norm=True, init_weights=True):

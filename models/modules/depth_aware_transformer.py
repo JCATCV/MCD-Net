@@ -10,7 +10,6 @@
 
 import math
 from functools import reduce
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -57,9 +56,9 @@ class SoftComp(nn.Module):
         return feat
 
 
-class FusionFeedForward(nn.Module):
+class DepthAwareFeedForward(nn.Module):
     def __init__(self, d_model, n_vecs=None, t2t_params=None):
-        super(FusionFeedForward, self).__init__()
+        super(self).__init__()
         # We set d_ff as a default to 1960
         hd = 1960
         self.conv1 = nn.Sequential(
@@ -86,7 +85,6 @@ class FusionFeedForward(nn.Module):
         normalizer = x.new_ones(b, n, 49).view(-1, self.n_vecs, 49).permute(0, 2, 1)
         x = self.fold(x.view(-1, self.n_vecs, c).permute(0, 2, 1)) 
         x = x * torch.sigmoid(self.fuse(torch.cat((x, d), 1)))
-        # x = x * (1+torch.tanh(self.fuse(torch.cat((x, d), 1))))
         x = self.unfold(x / self.fold(normalizer)).permute(0, 2, 1).contiguous().view(b, n, c)
         x = self.conv2(x)
         return x
@@ -392,7 +390,7 @@ class DepthAwareTransformerBlock(nn.Module):
             qkv_bias=qkv_bias, pool_method=pool_method)
 
         self.norm2 = norm_layer(dim)
-        self.mlp = FusionFeedForward(dim, n_vecs=n_vecs, t2t_params=t2t_params)
+        self.mlp = DepthAwareFeedForward(dim, n_vecs=n_vecs, t2t_params=t2t_params)
 
     def forward(self, input):
         x, d = input
