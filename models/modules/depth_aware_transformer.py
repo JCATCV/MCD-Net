@@ -344,21 +344,6 @@ class WindowAttention(nn.Module):
 
 
 class DepthAwareTransformerBlock(nn.Module):
-    r""" Temporal Focal Transformer Block.
-    Args:
-        dim (int): Number of input channels.
-        num_heads (int): Number of attention heads.
-        window_size (tuple[int]): Window size.
-        shift_size (int): Shift size for SW-MSA.
-        mlp_ratio (float): Ratio of mlp hidden dim to embedding dim.
-        qkv_bias (bool, optional): If True, add a learnable bias to query, key, value. Default: True
-        norm_layer (nn.Module, optional): Normalization layer.  Default: nn.LayerNorm
-        focal_level (int):  The number level of focal window.
-        focal_window (int):  Window size of each focal window.
-        n_vecs (int): Required for F3N.
-        t2t_params (int): T2T parameters for F3N.
-    """
-
     def __init__(self, dim, num_heads, window_size=(5, 9), mlp_ratio=4.,
                  qkv_bias=True, pool_method="fc", focal_level=2, focal_window=(5 ,9),
                  norm_layer=nn.LayerNorm, n_vecs=None, t2t_params=None):
